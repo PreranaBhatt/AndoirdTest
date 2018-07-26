@@ -1,0 +1,97 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 25069211379,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseStep.initiate()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Launch an book my show app im mobile and do login",
+        "description": "",
+        "id": "launch-book-my-show-app-in-mobile-and-book-a-movie-for-two;launch-an-book-my-show-app-im-mobile-and-do-login",
+        "after": [
+          {
+            "result": {
+              "duration": 5065122449,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseStep.teardown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18815786322,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "i will open bookmyshow app in mobile",
+            "match": {
+              "location": "TestStep3.java:18"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 10883828447,
+              "error_message": "java.lang.IndexOutOfBoundsException: Index: 0, Size: 0\n\tat java.util.ArrayList.rangeCheck(ArrayList.java:657)\n\tat java.util.ArrayList.get(ArrayList.java:433)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat io.appium.java_client.pagefactory.ElementListInterceptor.getObject(ElementListInterceptor.java:40)\n\tat io.appium.java_client.pagefactory.interceptors.InterceptorOfAListOfElements.intercept(InterceptorOfAListOfElements.java:51)\n\tat $java.util.ArrayList$$EnhancerByCGLIB$$c0a2d785.get(\u003cgenerated\u003e)\n\tat Page.MoviesPage.selectFirstAvailableShow(MoviesPage.java:80)\n\tat Steps.TestStep3.lambda$new$1(TestStep3.java:44)\n\tat ✽.And i will select first available movie(test3.feature:6)\n",
+              "status": "failed"
+            },
+            "line": 6,
+            "name": "i will select first available movie",
+            "match": {
+              "location": "TestStep3.java:36"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "i will select seat  for two",
+            "match": {
+              "location": "TestStep3.java:48"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "i should get payment page",
+            "match": {
+              "location": "TestStep3.java:51"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@checko"
+          }
+        ]
+      }
+    ],
+    "name": "Launch book my show app in mobile and book a movie for two",
+    "description": "",
+    "id": "launch-book-my-show-app-in-mobile-and-book-a-movie-for-two",
+    "keyword": "Feature",
+    "uri": "test3.feature"
+  }
+]

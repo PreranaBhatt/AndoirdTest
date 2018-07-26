@@ -1,0 +1,89 @@
+buildscript {
+    repositories {
+        maven {
+            url "http://repo.bodar.com"
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.codehaus.gpars:gpars:1.2.1"
+
+    }
+}
+plugins {
+    id 'java'
+}
+
+group 'mobiletest'
+version '1.0-SNAPSHOT'
+
+//sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'http://repo1.maven.org/maven2'
+    }
+    maven {
+        url "http://repo.bodar.com"
+    }
+}
+
+ext.cukesVersion = '1.2.5'
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+
+    compile group: 'info.cukes', name: 'cucumber-junit', version: "$cukesVersion"
+
+    compile group: 'info.cukes', name: 'cucumber-core', version: "$cukesVersion"
+
+    compile group: 'info.cukes', name: 'cucumber-java8', version: "$cukesVersion"
+
+    compile "org.codehaus.groovy:groovy-all:2.2.0"
+
+    compile 'org.seleniumhq.selenium:selenium-java:3.5.1'
+
+    compile 'org.apache.poi:poi:3.13'
+
+    compile 'org.apache.poi:poi-ooxml:3.13'
+
+    compile group: 'io.appium', name: 'java-client', version: '5.0.2'
+
+    compile group: 'com.jayway.awaitility', name: 'awaitility', version: '1.7.0'
+}
+
+private String getTags() {
+
+    def tags = System.getProperty("tags")
+    if (tags != null)
+        return tags;
+
+    return "~wip"
+
+}
+
+tasks.withType(JavaExec)
+        {
+            systemProperty("Devicename", System.getProperty("Devicename"))
+        }
+
+task run {
+
+    doLast {
+        String tags = getTags()
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = sourceSets.test.runtimeClasspath
+            args = ["-p", "pretty", "-p", "json:${reporting.baseDir}/cucumber/cucumber.json", "--glue", "Steps", "-t", tags, "${project.projectDir}/src/test/java/Features"]
+
+            systemProperties = [
+                    "Devicename": System.getProperty("Devicename")
+            ]
+        }
+
+    }
+}
+
