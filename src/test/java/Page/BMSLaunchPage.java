@@ -44,7 +44,7 @@ public class BMSLaunchPage {
     private WebElement locationPopupOkBtn;
 
 
-    public void clickOnLocationPopupBtn() {
+    public void clickOnMonitorPhysicalLocationPopup() {
         try {
             locationPopupOkBtn.isDisplayed();
             locationPopupOkBtn.click();

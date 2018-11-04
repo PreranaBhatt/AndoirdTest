@@ -12,7 +12,7 @@ public class TestStep {
     @Given("^Launch an app$")
     public void LaunchApp() {
         driver = BaseStep.driver;
-        System.out.println(driver.getDeviceTime());
+        System.out.println("*********check" +driver.getDeviceTime());
         System.out.println(" **********************");
         System.out.println(driver.getContext());
     }
@@ -21,7 +21,7 @@ public class TestStep {
     public void getStarted() {
 
         System.out.println("driver" + driver);
-        login = new Login(BaseStep.driver);
+        login = new Login(driver);
 
         login.clickGetStartedBtn();
         login.closeSkintoneQuestionarePopup();

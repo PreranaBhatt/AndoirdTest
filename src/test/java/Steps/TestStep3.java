@@ -16,7 +16,7 @@ public class TestStep3 implements En {
     public TestStep3() {
 
         Given("^i will open bookmyshow app in mobile$", () -> {
-            driver = BaseStep.driver;
+           // driver = BaseStep.driver;
 
             try {
                 Thread.sleep(2000);
@@ -24,10 +24,11 @@ public class TestStep3 implements En {
                 e.printStackTrace();
             }
 
-            bmsLaunchPage = new BMSLaunchPage(BaseStep.driver);
+           // bmsLaunchPage = new BMSLaunchPage(BaseStep.driver);
             bmsLaunchPage.clickOnGetStartedBTn();
             bmsLaunchPage.clickOnEleSkipBtn();
-            bmsLaunchPage.clickOnLocationPopupBtn();
+            bmsLaunchPage.clickOnMonitorPhysicalLocationPopup();
+            bmsLaunchPage.clickOnMonitorPhysicalLocationPopup();
             bmsLaunchPage.selectRegion("Bengaluru");
 
         });
@@ -35,10 +36,10 @@ public class TestStep3 implements En {
 
         And("^i will select first available movie$", () -> {
 
-            bmshomePage = new BMSHomePage(BaseStep.driver);
+          //  bmshomePage = new BMSHomePage(BaseStep.driver);
             bmshomePage.selectAnyCategory("Movies");
 
-            moviesPage = new MoviesPage(BaseStep.driver);
+        //    moviesPage = new MoviesPage(BaseStep.driver);
             moviesPage.selectFirstAvailableBookBtn();
             moviesPage.selectDayforMovie();
             moviesPage.selectFirstAvailableShow();

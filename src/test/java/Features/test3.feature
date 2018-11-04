@@ -6,3 +6,4 @@ Feature:Launch book my show app in mobile and book a movie for two
     And i will select first available movie
     And i will select seat  for two
     Then i should get payment page
+

@@ -53,22 +53,30 @@ dependencies {
     compile group: 'io.appium', name: 'java-client', version: '5.0.2'
 
     compile group: 'com.jayway.awaitility', name: 'awaitility', version: '1.7.0'
+
+    compile group: 'io.rest-assured',name:'rest-assured',version: '3.0.0'
+
+    compile group: 'org.json' , name:'json' ,version: '20160810'
+
+    compile group: 'org.codehaus.groovy' ,name: 'groovy-all' ,version: '2.3.5'
+
+    compile group: 'org.testng' ,name: 'testng',version: '6.14.3'
+
+    compile group: 'org.testinfected.hamcrest-matchers' ,name: 'core-matchers',version: '1.5'
+
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.8.5'
+
 }
 
 private String getTags() {
 
     def tags = System.getProperty("tags")
     if (tags != null)
-        return tags;
-
+        return tags
     return "~wip"
 
 }
 
-tasks.withType(JavaExec)
-        {
-            systemProperty("Devicename", System.getProperty("Devicename"))
-        }
 
 task run {
 
@@ -78,10 +86,6 @@ task run {
             main = "cucumber.api.cli.Main"
             classpath = sourceSets.test.runtimeClasspath
             args = ["-p", "pretty", "-p", "json:${reporting.baseDir}/cucumber/cucumber.json", "--glue", "Steps", "-t", tags, "${project.projectDir}/src/test/java/Features"]
-
-            systemProperties = [
-                    "Devicename": System.getProperty("Devicename")
-            ]
         }
 
     }

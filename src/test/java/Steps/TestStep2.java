@@ -12,7 +12,7 @@ public class TestStep2 implements En {
 
     public TestStep2() {
         Given("^Launching an app$", () -> {
-            driver = BaseStep.driver;
+         //   driver = BaseStep.driver;
             login = new Login(driver);
         });
 

@@ -21,7 +21,7 @@ public class basePage {
         Properties properties= new Properties();
         try {
             properties.load(fileInputStream);
-            System.out.println(properties.getProperty(propertyName));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,4 +29,11 @@ public class basePage {
         return properties.getProperty(propertyName);
     }
 
+
+
+    public static  String getURL(String property)
+    {
+        String GivenUrl= getValuefromProprtyFile("BASEURL")+ getValuefromProprtyFile( property);
+        return GivenUrl;
+    }
 }
